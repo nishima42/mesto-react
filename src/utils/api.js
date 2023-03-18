@@ -87,6 +87,16 @@ class Api {
       })
       .then(this._checkResponse)
     }
+
+    changeLikeCardStatus(id, isLiked) {
+      this._id = id;
+      this._isLiked = isLiked;
+      return fetch(`${this._baseUrl}/cards/${this._id}/likes`, {
+        method: `${this._isLiked ? 'PUT' : 'DELETE'}`,
+        headers: this._headers,
+      })
+      .then(this._checkResponse)
+    }
 }
 
 const api = new Api({
