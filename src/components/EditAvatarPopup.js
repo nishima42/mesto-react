@@ -12,8 +12,12 @@ function EditAvatarPopup(props) {
     })
   }
 
+  React.useEffect(() => {
+    avatarRef.current.value = '';
+  }, [props.isOpen]); 
+
   return (
-    <PopupWithForm name="editAvatar" title="Обновить аватар" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSumbit}>
+    <PopupWithForm name="editAvatar" title="Обновить аватар" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSumbit} buttonText="Сохранить">
           <input id="avatar-input" type="url" className="popup__input inputAvatar" ref={avatarRef} name="avatar" placeholder="Ссылка на аватар" required />
           <div className="popup__errorContainer">
             <span className="popup__input-error avatar-input-error"></span>

@@ -24,8 +24,8 @@ function Card(props) {
 
 
   return (
-    <article className="element" onClick={handleClick}>
-      <img className="element__image" src={props.card.link} alt={props.card.name}/>
+    <article className="element">
+      <img className="element__image" src={props.card.link} alt={props.card.name} onClick={handleClick} />
       {isOwn && <button type="button" className="element__deleteButton" onClick={handleDeleteClick} />}
       <div className="element__description">
         <h2 className="element__name">{props.card.name}</h2>

@@ -27,15 +27,15 @@ function EditProfilePopup(props) {
   React.useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]); 
+  }, [currentUser, props.isOpen]); 
 
   return (
-    <PopupWithForm name="editProfile" title="Редактировать профиль" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
-      <input id="name-input" type="text" className="popup__input inputName" value={name} onChange={handleNameChange} name="nameEdit" placeholder="Введите имя" minLength="2" maxLength="40" required />
+    <PopupWithForm name="editProfile" title="Редактировать профиль" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit} buttonText="Сохранить">
+      <input id="name-input" type="text" className="popup__input inputName" value={name || ''} onChange={handleNameChange} name="nameEdit" placeholder="Введите имя" minLength="2" maxLength="40" required />
       <div className="popup__errorContainer">
         <span className="popup__input-error name-input-error"></span>
       </div>
-      <input id="about-input" type="text" className="popup__input inputAbout" value={description} onChange={handleDescriptionChange} name="aboutEdit" placeholder="Введите профессию" minLength="2" maxLength="200" required />
+      <input id="about-input" type="text" className="popup__input inputAbout" value={description || ''} onChange={handleDescriptionChange} name="aboutEdit" placeholder="Введите профессию" minLength="2" maxLength="200" required />
       <div className="popup__errorContainer">
         <span className="popup__input-error about-input-error"></span>
       </div>
