@@ -69,7 +69,7 @@ function App() {
     api.deleteCard(card._id)
     .then((res) => {
       console.log(res);
-      setCards(cards.filter(oldCard => oldCard._id != card._id))
+      setCards((prevState) => prevState.filter(oldCard => oldCard._id != card._id))
       closeAllPopups();
     })
     .catch((err) => {

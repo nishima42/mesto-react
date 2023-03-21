@@ -22,7 +22,6 @@ function Card(props) {
     props.onCardDelete(props.card)
   }
 
-
   return (
     <article className="element">
       <img className="element__image" src={props.card.link} alt={props.card.name} onClick={handleClick} />
